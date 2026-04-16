@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dfvyt7ojv4bhf" path="res://icon.svg" id="1_lhya7"]
 [ext_resource type="PackedScene" uid="uid://bwmm032itxll1" path="res://Week 1/character_body_2d.tscn" id="2_vwskp"]
 [ext_resource type="PackedScene" uid="uid://bxriggkufkhxl" path="res://Week 2/portal.tscn" id="3_vwskp"]
+[ext_resource type="PackedScene" uid="uid://ijp6nj62pt0g" path="res://Week 3/enemy.tscn" id="4_dcmat"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e06xj"]
 texture = ExtResource("1_lhya7")
@@ -204,7 +205,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_e06xj")
 
 [node name="Node2D" type="Node2D" unique_id=1944617809]
-position = Vector2(3, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=975021969]
 modulate = Color(0, 0, 0, 1)
@@ -216,32 +216,48 @@ tile_set = SubResource("TileSet_bwoon")
 top_level = true
 position = Vector2(0, -39)
 
-[node name="Portal_A1" parent="." unique_id=1953999146 instance=ExtResource("3_vwskp")]
+[node name="Portal" type="Node2D" parent="." unique_id=1367743906]
+
+[node name="Portal_A1" parent="Portal" unique_id=1953999146 instance=ExtResource("3_vwskp")]
 position = Vector2(-530, 92)
 scale = Vector2(2, 2)
 target_portal = NodePath("../Portal_A2")
 
-[node name="Portal_A2" parent="." unique_id=1142405224 instance=ExtResource("3_vwskp")]
+[node name="Portal_A2" parent="Portal" unique_id=1142405224 instance=ExtResource("3_vwskp")]
 position = Vector2(-1321, 1013)
 scale = Vector2(2, 2)
 target_portal = NodePath("../Portal_A1")
 
-[node name="Portal_B1" parent="." unique_id=156224098 instance=ExtResource("3_vwskp")]
+[node name="Portal_B1" parent="Portal" unique_id=156224098 instance=ExtResource("3_vwskp")]
 position = Vector2(-1320, 735)
 scale = Vector2(2, 2)
 target_portal = NodePath("../Portal_B2")
 
-[node name="Portal_B2" parent="." unique_id=1353420699 instance=ExtResource("3_vwskp")]
+[node name="Portal_B2" parent="Portal" unique_id=1353420699 instance=ExtResource("3_vwskp")]
 position = Vector2(640, -322)
 scale = Vector2(2, 2)
 target_portal = NodePath("../Portal_B1")
 
-[node name="Portal_C1" parent="." unique_id=1139298580 instance=ExtResource("3_vwskp")]
+[node name="Portal_C1" parent="Portal" unique_id=1139298580 instance=ExtResource("3_vwskp")]
 position = Vector2(1171, -77)
 scale = Vector2(2, 2)
 target_portal = NodePath("../Portal_C2")
 
-[node name="Portal_C2" parent="." unique_id=685658971 instance=ExtResource("3_vwskp")]
+[node name="Portal_C2" parent="Portal" unique_id=685658971 instance=ExtResource("3_vwskp")]
 position = Vector2(1651, 1007)
 scale = Vector2(2, 2)
 target_portal = NodePath("../Portal_C1")
+
+[node name="Musuh" type="Node2D" parent="." unique_id=2073134642]
+position = Vector2(-1044, 1045)
+
+[node name="enemy" parent="Musuh" unique_id=1714901746 instance=ExtResource("4_dcmat")]
+
+[node name="enemy2" parent="Musuh" unique_id=91481082 instance=ExtResource("4_dcmat")]
+position = Vector2(2230, 0)
+
+[node name="enemy3" parent="Musuh" unique_id=332363032 instance=ExtResource("4_dcmat")]
+position = Vector2(1533, -718)
+
+[node name="enemy4" parent="Musuh" unique_id=1277354024 instance=ExtResource("4_dcmat")]
+position = Vector2(473, -387)
