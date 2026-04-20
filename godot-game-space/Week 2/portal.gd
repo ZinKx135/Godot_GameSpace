@@ -5,12 +5,10 @@ extends Area2D
 var teleport_locked := false
 var last_body: Node = null
 
-
 func _ready():
 	$AnimatedSprite2D.play("Portal_idle")
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-
 
 func _on_body_entered(body):
 
@@ -18,7 +16,6 @@ func _on_body_entered(body):
 		return
 
 	if body is CharacterBody2D:
-
 		var portal = get_node(target_portal)
 
 		# teleport player
@@ -27,7 +24,6 @@ func _on_body_entered(body):
 		# lock portal tujuan
 		portal.teleport_locked = true
 		portal.last_body = body
-
 
 func _on_body_exited(body):
 
