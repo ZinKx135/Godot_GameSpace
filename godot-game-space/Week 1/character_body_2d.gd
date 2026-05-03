@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
-@export var laser_length := 800.0
-@export var damage := 10
+@export var laser_length := 600.0
+@export var damage := 1
+@export var max_hp := 100
+
 @onready var ray_kanan = $RayCast2D_kanan
 @onready var ray_kiri = $RayCast2D_kiri
+@onready var hp_label = $Label
+
+var hp := 100
 
 var laser_kanan: Line2D
 var laser_kiri: Line2D
@@ -12,6 +17,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -800.0
 
 func _ready():
+	hp = max_hp
+	update_hp_label()
 	laser_kanan = buat_laser()
 	laser_kiri = buat_laser()
 
@@ -65,3 +72,17 @@ func check_raycast(ray: RayCast2D, laser: Line2D, dir: Vector2):
 			#damage
 			if obj.has_method("take_damage"):
 				obj.take_damage(damage)
+
+func take_damage(dmg):
+	hp -= dmg
+	update_hp_label()
+
+	if hp <= 0:
+		die()
+
+func update_hp_label():
+	hp_label.text = str(hp)
+
+func die():
+	print("Player mati")
+	queue_free()

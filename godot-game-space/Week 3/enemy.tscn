@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://c2wh165vpv1ak" path="res://Week 3/enemy.gd" id="1_p4ewx"]
 [ext_resource type="Texture2D" uid="uid://dfvyt7ojv4bhf" path="res://icon.svg" id="2_fhs7u"]
+[ext_resource type="PackedScene" uid="uid://5qp4pb6qytqa" path="res://Week 4/bullet.tscn" id="3_fhs7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x7rd"]
 size = Vector2(128, 128)
 
 [node name="enemy" type="CharacterBody2D" unique_id=1714901746]
 script = ExtResource("1_p4ewx")
+bullet_scene = ExtResource("3_fhs7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1694280871]
 shape = SubResource("RectangleShape2D_2x7rd")
@@ -28,3 +30,13 @@ grow_vertical = 2
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RayCast2D_kanan" type="RayCast2D" parent="." unique_id=1686695687]
+position = Vector2(32, 0)
+target_position = Vector2(200, 0)
+
+[node name="RayCast2D_kiri" type="RayCast2D" parent="." unique_id=54854826]
+position = Vector2(-32, 0)
+target_position = Vector2(-200, 0)
+
+[node name="Aim" type="Marker2D" parent="." unique_id=1671375806]

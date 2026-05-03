@@ -8,7 +8,6 @@ size = Vector2(62, 62)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=122348483 groups=["Player"]]
 script = ExtResource("1_ij6vw")
-damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=659169537]
 shape = SubResource("RectangleShape2D_44cfe")
@@ -26,3 +25,10 @@ target_position = Vector2(200, 0)
 [node name="RayCast2D_kiri" type="RayCast2D" parent="." unique_id=1369699555]
 position = Vector2(-32, 0)
 target_position = Vector2(-200, 0)
+
+[node name="Label" type="Label" parent="." unique_id=335885268]
+offset_left = -16.0
+offset_top = -56.0
+offset_right = 16.0
+offset_bottom = -33.0
+text = "100"
