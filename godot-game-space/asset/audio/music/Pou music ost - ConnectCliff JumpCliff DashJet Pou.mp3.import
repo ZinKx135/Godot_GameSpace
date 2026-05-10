@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmuuy4ljqdv30"
+path="res://.godot/imported/Pou music ost - ConnectCliff JumpCliff DashJet Pou.mp3-f605617c937f43b91c7fa44433db8e47.mp3str"
+
+[deps]
+
+source_file="res://asset/audio/music/Pou music ost - ConnectCliff JumpCliff DashJet Pou.mp3"
+dest_files=["res://.godot/imported/Pou music ost - ConnectCliff JumpCliff DashJet Pou.mp3-f605617c937f43b91c7fa44433db8e47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

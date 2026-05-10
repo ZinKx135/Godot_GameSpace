@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c2wh165vpv1ak" path="res://Week 3/enemy.gd" id="1_p4ewx"]
 [ext_resource type="Texture2D" uid="uid://dfvyt7ojv4bhf" path="res://icon.svg" id="2_fhs7u"]
 [ext_resource type="PackedScene" uid="uid://5qp4pb6qytqa" path="res://Week 4/bullet.tscn" id="3_fhs7u"]
+[ext_resource type="AudioStream" uid="uid://dnf80o6yuqfxl" path="res://asset/audio/sfx/yodguard-energy-charge-2-482499.mp3" id="4_xcclf"]
+[ext_resource type="AudioStream" uid="uid://dr81wolgga1ki" path="res://asset/audio/sfx/freesound_community-gun-shots-from-a-distance-5-96388.mp3" id="5_v8hld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x7rd"]
 size = Vector2(128, 128)
@@ -40,3 +42,10 @@ position = Vector2(-32, 0)
 target_position = Vector2(-200, 0)
 
 [node name="Aim" type="Marker2D" parent="." unique_id=1671375806]
+
+[node name="SFX_Aim" type="AudioStreamPlayer2D" parent="." unique_id=682447401]
+stream = ExtResource("4_xcclf")
+bus = &"SFX"
+
+[node name="SFX_Tembak" type="AudioStreamPlayer2D" parent="." unique_id=56728796]
+stream = ExtResource("5_v8hld")

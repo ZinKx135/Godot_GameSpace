@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var ray_kanan = $RayCast2D_kanan
 @onready var ray_kiri = $RayCast2D_kiri
 @onready var hp_label = $Label
+@onready var sfx_aim = $SFX_Aim
+@onready var sfx_tembak = $SFX_Tembak
 
 var laser_kanan : Line2D
 var laser_kiri : Line2D
@@ -62,7 +64,9 @@ func start_aim(ray, laser, dir):
 
 	is_aiming = true
 	can_shoot = false
-
+	
+	sfx_aim.pitch_scale = randf_range(0.95, 1.05)
+	sfx_aim.play()
 	# matikan sisi lain
 	if dir == Vector2.RIGHT:
 		laser_kiri.visible = false
@@ -84,9 +88,10 @@ func start_aim(ray, laser, dir):
 		var obj = ray.get_collider()
 		if obj.is_in_group("Player"):
 			shoot((player.global_position - global_position).normalized())
-
+	
+	sfx_aim.stop()
 	laser.visible = false
-
+	
 	await get_tree().create_timer(cooldown).timeout
 
 	is_aiming = false
@@ -116,6 +121,8 @@ func update_laser_tracking(laser, ray):
 	laser.add_point(current_target)
 
 func shoot(direction):
+	sfx_tembak.pitch_scale = randf_range(0.95, 1.05)
+	sfx_tembak.play()
 
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)

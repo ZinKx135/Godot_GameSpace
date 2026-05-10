@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://cahyinpkivnoj"]
+
+[ext_resource type="Script" uid="uid://c22gs2522cdw4" path="res://Week 5/settings.gd" id="1_s2euh"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s2euh"]
+color = Color(1, 1, 1, 1)
+grow_begin = -9.0
+grow_end = -7.0
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_h6iq6"]
+color = Color(0.6784314, 0.4627451, 1, 1)
+grow_begin = -9.0
+thickness = 8
+
+[node name="Settings" type="CanvasLayer" unique_id=1765796946]
+process_mode = 3
+script = ExtResource("1_s2euh")
+
+[node name="blur" type="ColorRect" parent="." unique_id=797880692]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="hitam" type="ColorRect" parent="." unique_id=420898426]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -196.0
+offset_right = 320.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Settings" type="Label" parent="." unique_id=1080725653]
+offset_left = 512.0
+offset_top = 144.0
+offset_right = 640.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 26
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Master" type="Label" parent="." unique_id=2039583674]
+offset_left = 320.0
+offset_top = 208.0
+offset_right = 384.0
+offset_bottom = 239.0
+text = "Master"
+vertical_alignment = 1
+
+[node name="Master_Slider" type="HSlider" parent="." unique_id=810058003]
+offset_left = 448.0
+offset_top = 216.0
+offset_right = 832.0
+offset_bottom = 232.0
+theme_override_styles/slider = SubResource("StyleBoxLine_s2euh")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_h6iq6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_h6iq6")
+max_value = 1.0
+step = 0.02
+value = 1.0
+
+[node name="Music" type="Label" parent="." unique_id=884748896]
+offset_left = 320.0
+offset_top = 272.0
+offset_right = 384.0
+offset_bottom = 303.0
+text = "Music"
+vertical_alignment = 1
+
+[node name="Music_Slider" type="HSlider" parent="." unique_id=1339067386]
+offset_left = 448.0
+offset_top = 280.0
+offset_right = 832.0
+offset_bottom = 296.0
+theme_override_styles/slider = SubResource("StyleBoxLine_s2euh")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_h6iq6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_h6iq6")
+max_value = 1.0
+step = 0.02
+value = 1.0
+
+[node name="SFX" type="Label" parent="." unique_id=267821699]
+offset_left = 320.0
+offset_top = 336.0
+offset_right = 384.0
+offset_bottom = 367.0
+text = "SFX"
+vertical_alignment = 1
+
+[node name="SFX_Slider" type="HSlider" parent="." unique_id=1385694517]
+offset_left = 448.0
+offset_top = 344.0
+offset_right = 832.0
+offset_bottom = 360.0
+theme_override_styles/slider = SubResource("StyleBoxLine_s2euh")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_h6iq6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_h6iq6")
+max_value = 1.0
+step = 0.02
+value = 1.0
+
+[node name="Fullscreen" type="Label" parent="." unique_id=2078380710]
+offset_left = 320.0
+offset_top = 400.0
+offset_right = 416.0
+offset_bottom = 433.0
+text = "Full Screen"
+vertical_alignment = 1
+
+[node name="fullscreen_CheckButton" type="CheckButton" parent="." unique_id=1201961438]
+offset_left = 448.0
+offset_top = 400.0
+offset_right = 512.0
+offset_bottom = 432.0
+
+[node name="Resolution" type="Label" parent="." unique_id=527364094]
+offset_left = 576.0
+offset_top = 400.0
+offset_right = 664.0
+offset_bottom = 432.0
+text = "Resolution"
+vertical_alignment = 1
+
+[node name="Resolution_OptionButton" type="OptionButton" parent="." unique_id=570401884]
+offset_left = 736.0
+offset_top = 408.0
+offset_right = 832.0
+offset_bottom = 428.0
+
+[node name="Back" type="Button" parent="." unique_id=178378]
+offset_left = 536.0
+offset_top = 456.0
+offset_right = 616.0
+offset_bottom = 496.0
+theme_override_font_sizes/font_size = 18
+text = "Back"
+
+[connection signal="value_changed" from="Master_Slider" to="." method="_on_Master_Slider_value_changed"]
+[connection signal="value_changed" from="Music_Slider" to="." method="_on_Music_Slider_value_changed"]
+[connection signal="value_changed" from="SFX_Slider" to="." method="_on_SFX_Slider_value_changed"]
+[connection signal="toggled" from="fullscreen_CheckButton" to="." method="_on_fullscreen_CheckButton_toggled"]
+[connection signal="item_selected" from="Resolution_OptionButton" to="." method="_on_Resolution_OptionButton_item_selected"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

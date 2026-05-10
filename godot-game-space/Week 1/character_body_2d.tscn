@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dpwmpyfic0ke" path="res://Week 1/character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dfvyt7ojv4bhf" path="res://icon.svg" id="2_ghijl"]
+[ext_resource type="AudioStream" uid="uid://7b4suws3max8" path="res://asset/audio/sfx/freesound_community-cartoon-jump-6462.mp3" id="3_6ex6n"]
+[ext_resource type="AudioStream" uid="uid://rrkmesb2van4" path="res://asset/audio/sfx/freesound_community-laser-beam-76426.mp3" id="4_wqxeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
 size = Vector2(62, 62)
@@ -26,9 +28,11 @@ target_position = Vector2(200, 0)
 position = Vector2(-32, 0)
 target_position = Vector2(-200, 0)
 
-[node name="Label" type="Label" parent="." unique_id=335885268]
-offset_left = -16.0
-offset_top = -56.0
-offset_right = 16.0
-offset_bottom = -33.0
-text = "100"
+[node name="SFX_Lompat" type="AudioStreamPlayer2D" parent="." unique_id=909911113]
+stream = ExtResource("3_6ex6n")
+bus = &"SFX"
+
+[node name="SFX_Laser" type="AudioStreamPlayer2D" parent="." unique_id=1291957325]
+stream = ExtResource("4_wqxeq")
+bus = &"SFX"
+parameters/looping = true
